@@ -1,0 +1,8 @@
+<%- include('header.ejs'); %>
+   <form action="/edit" method="post">
+   	  <input type="hidden" name="stuff_id" value="<%= stuff_id %>">
+      <input type="text" name="stuff_name" value="<%= stuff_name %>">
+      <input type="submit">
+    </form>
+    <br><br><a href="/">< Back</a>
+<%- include('footer.ejs'); %>

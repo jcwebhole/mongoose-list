@@ -1,0 +1,9 @@
+<%- include('header.ejs'); %>
+   <form action="/delete" method="post">
+   	  <input type="hidden" name="stuff_id" value="<%= stuff_id %>">
+      <input type="hidden" name="stuff_name" value="<%= stuff_name %>">
+      Deleting "<%= stuff_name %>" &nbsp;&nbsp;&nbsp; 
+      <input type="submit" value="Confirm">
+    </form>
+    <br><br><a href="/">< Back</a>
+<%- include('footer.ejs'); %>

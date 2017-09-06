@@ -1,0 +1,41 @@
+<%- include('header.ejs'); %>
+    <% 
+    if(sorted){
+list.sort(function(a, b) {
+  var nameA = a.name.toUpperCase(); // ignore upper and lowercase
+  var nameB = b.name.toUpperCase(); // ignore upper and lowercase
+  if (nameA < nameB) {
+    return -1;
+  }
+  if (nameA > nameB) {
+    return 1;
+  }
+
+  // names must be equal
+  return 0;
+});
+}
+
+     %>
+
+
+   <form action="/" method="post">
+      <input type="text" name="stuff_name">
+      <input type="submit">
+    </form>
+
+<hr>
+<% if(sorted) { %>
+<a href="/">Unsorted List</a>	
+<% } else { %>
+<a href="/sorted">Sorted List</a>
+<% }
+%>
+<hr>
+    
+    <ul>
+      <% list.forEach(stuff => { %>
+        <li><a href="/edit/<%= stuff.id %>">Edit</a> | <a href="/delete/<%= stuff.id %>">Delete</a> | <%= stuff.name %></li>
+      <%  }) %>
+    </ul>
+<%- include('footer.ejs'); %>
